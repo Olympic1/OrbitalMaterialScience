@@ -1,6 +1,6 @@
 ﻿/*
  *   This file is part of Orbital Material Science.
- *   
+ *
  *   Orbital Material Science is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation, either version 3 of the License, or
@@ -58,7 +58,7 @@ namespace NE_Science
                     initPartObjects();
                 }
                 MEP_Module lab = part.GetComponent<MEP_Module>();
-                if (lab.MEPlabState == MEPLabStatus.ERROR_ON_START || lab.MEPlabState == MEPLabStatus.ERROR_ON_STOP)
+                if (lab.hasError())
                 {
                     animateAlarmLight();
                     playSoundFX();

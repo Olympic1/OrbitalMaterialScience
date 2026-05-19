@@ -19,6 +19,7 @@
 
 using System;
 using System.Linq;
+using Experience.Effects;
 using UnityEngine;
 using KSP.Localization;
 
@@ -163,6 +164,26 @@ namespace NE_Science
         [KSPEvent(active = false, externalToEVAOnly = true, guiActiveUnfocused = true, unfocusedRange = 3.0f, guiName = "#ne_Fix_robotic_arm")]
         public void FixArm()
         {
+            // A Kerbal on EVA is a vessel with a single crewmember - the Kerbal itself.
+            var vessel = FlightGlobals.ActiveVessel;
+            if (!vessel.isEVA)
+            {
+                NE_Helper.logError($"FixArm() - active vessel is not a Kerbal: {vessel}");
+                return;
+            }
+
+            // We could check the Kerbals' "trait" property for "Engineer", but mods could potentially create new
+            // Kerbal careers. So instead we check if the Kerbal has the "FailureRepairSkill" effect which, by default,
+            // all Engineer Kerbals have.
+            var kerbal = vessel.GetVesselCrew()[0];
+            if (!kerbal.HasEffect<FailureRepairSkill>())
+            {
+                // It would be more correct to state the effect, but most Players won't know this
+                ScreenMessages.PostScreenMessage("#ne_Only_Engineer_can_fix_arm", 6, ScreenMessageStyle.UPPER_CENTER);
+                return;
+            }
+
+
             Events["FixArm"].active = false;
             armOps = 0;
             switch (MEPlabState)

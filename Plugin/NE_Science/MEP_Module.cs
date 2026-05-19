@@ -441,14 +441,32 @@ namespace NE_Science
             Events["FixArm"].active = true;
         }
 
+        // Mainly used during debugging, but possibly keep as a future options switch
+        private bool automaticRestartOnFix = true;
+
         private void onAnimStartFixFinished(Animation anim)
         {
-            playAnimation(startExpAnimName, 1f, 0, onAnimExpStartFinished);
+            // Robot arm is fixed, the lab is ready again and the player can try starting the experiment again.
+            MEPlabState = MEPLabStatus.READY;
+            if (automaticRestartOnFix)
+            {
+
+                // Automatically try deploying the experiment again
+                // playAnimation(startExpAnimName, 1f, 0, onAnimExpStartFinished);
+                actionExp();
+            }
         }
 
         private void onAnimStopFixFinished(Animation anim)
         {
-            onAnimExpStopFinished(anim);
+            // Robot arm is fixed, the lab is ready again and the player can try starting the experiment again.
+            MEPlabState = MEPLabStatus.RUNNING;
+            if (automaticRestartOnFix)
+            {
+                // Robot arm fixed, automatically try finishing the experiment again
+                //playAnimation(startExpAnimName, -1f, 1f, onAnimExpStopFinished);
+                actionExp();
+            }
         }
 
         /// <summary>

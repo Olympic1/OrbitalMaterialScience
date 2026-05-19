@@ -1,0 +1,32 @@
+{
+  "NAME":"NEOS - Nehemiah Engineering Orbital Science",
+  "URL":"https://raw.githubusercontent.com/mwerle/OrbitalMaterialScience/master/GameData/NehemiahInc/NEOS.version",
+  "CHANGE_LOG_URL":"https://raw.githubusercontent.com/mwerle/OrbitalMaterialScience/master/CHANGELOG.md",
+  "GITHUB":
+  {
+    "USERNAME":"mwerle",
+    "REPOSITORY":"OrbitalMaterialScience",
+    "ALLOW_PRE_RELEASE":false
+  },
+  "VERSION": {
+    "MAJOR": {MAJOR},
+    "MINOR": {MINOR},
+    "PATCH": {PATCH},
+    "BUILD": {BUILD},
+  },
+  "KSP_VERSION": {
+    "MAJOR": {KSP_MAJOR},
+    "MINOR": {KSP_MINOR},
+    "PATCH": {KSP_PATCH},
+  },
+  "KSP_VERSION_MIN": {
+    "MAJOR": 1,
+    "MINOR": 11,
+    "PATCH": 0
+  },
+  "KSP_VERSION_MAX": {
+    "MAJOR": 1,
+    "MINOR": 12,
+    "PATCH": 99
+  }
+}

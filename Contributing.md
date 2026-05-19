@@ -161,9 +161,16 @@ part of the mod would only require downloading that part. This is especially
 important for people on slow internet connections and could be leveraged by
 [CKAN][60].
 
-To make a release, a [NAnt build script][61] (`OrbitalScience.build`) is
-provided. Edit this to update the version numbers, then run **nant** in the
-top-level directory to generate the various release files.
+To make a release, a special project file (`Scripts/Deploy.proj`) is
+provided. A helper script `release.sh` (`release.bat`) exists to make it
+easier to invoke.
+
+After running, the build artifacts are in the `_release_tmp` directory,
+including an updated `CHANGELOG.md`. Copy the version and date information
+into the current `CHANGELOG.md`, keeping the special tags at the top for
+automatically populating it for the next release.
+
+You can now commit the modified binaries and version files, tag the commit,
+and create the release on GitHub.
 
 [60]: http://forum.kerbalspaceprogram.com/index.php?showtopic=90246
-[61]: http://nant.sourceforge.net/

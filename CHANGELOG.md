@@ -3,6 +3,21 @@ Changelog for Nehemiah Engineering Orbital Science
 
 Major features are **bolded**, contributors are *emphasized*.
 
+{VERSION} (for KSP {KSPVERSION}) {DATE}
+-----------------------------------------------------------
+
+0.10.0.0 (for KSP 1.12.5) 2026-05-20
+-----------------------------------------------------------
+### General
+* Recompiled for KSP 1.12.5 (should be compatible with KSP
+  1.11 and higher)
+* Update included version of ModuleManager to v4.2.3
+
+### MEP
+* Fix MEP not returning to operational state after fixing
+  the robot arm
+* Require Engineer to fix robot arm
+
 0.9.1 (for KSP 1.9)
 -----------------------------------------------------------
 ### General

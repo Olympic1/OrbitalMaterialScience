@@ -313,6 +313,11 @@ namespace NE_Science
                     Events["actionExp"].guiName = exposureSlot.getActionString();
                 }
             }
+            else
+            {
+                Events["moveExp"].active = false;
+                Events["actionExp"].active = false;
+            }
         }
 
         protected override bool canPerformLabActions()

@@ -256,10 +256,10 @@
     <Target Name="ZipRelease"
             DependsOnTargets="getversion;gettime">
         <MakeDir Directories="$(ReleaseDir)" Condition="!Exists('$(ReleaseDir)')" />
-        <Delete Files="$(ReleaseDir)/$(CurrMod_name)-$(DLLVersion)*.zip" />
+        <Delete Files="$(ReleaseDir)/$(CurrMod_name)_$(DLLVersion)*.zip" />
         <ZipDirectory Condition="Exists('$(CurrMod_dir)')"
                       SourceDirectory="$(CurrMod_dir)"
-                      DestinationFile="$(ReleaseDir)/$(CurrMod_name)-$(DLLVersion)_$(CurrentDate).zip" />
+                      DestinationFile="$(ReleaseDir)/$(CurrMod_name)_$(DLLVersion)_$(CurrentDate).zip" />
     </Target>
 
     <Target Name="gettime">
